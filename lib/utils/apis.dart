@@ -1,4 +1,4 @@
-const baseUrl = 'https://poudelsagar.com.np';
+const baseUrl = 'https://poudelsagar.com.np/';
 
 const loginApi = "$baseUrl/login.php";
 const signupApi = "$baseUrl/signup.php";

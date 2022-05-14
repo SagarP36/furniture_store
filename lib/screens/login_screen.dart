@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Email id',
+                              'Email ID',
                               style: TextStyle(
                                 fontSize: 20.0,
                                 fontWeight: FontWeight.w600,

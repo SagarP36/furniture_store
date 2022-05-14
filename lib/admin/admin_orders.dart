@@ -62,7 +62,7 @@ class AdminOrders extends GetView<OrderController> {
                                   shrinkWrap: true,
                                   itemCount: orderController
                                       .orders[index]['products'].length,
-                                  itemBuilder: (context, index) {
+                                  itemBuilder: (context, proindex) {
                                     return Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Container(
@@ -80,20 +80,21 @@ class AdminOrders extends GetView<OrderController> {
                                           leading: Image.network(
                                             "$baseUrl/" +
                                                 orderController.orders[index]
-                                                        ['products'][index]
+                                                        ['products'][proindex]
                                                     ['image'],
                                             height: 50,
                                             width: 50,
                                           ),
                                           title: Text(
                                             orderController.orders[index]
-                                                ['products'][index]['name'],
+                                                ['products'][proindex]['name'],
                                             style:
                                                 const TextStyle(fontSize: 20),
                                           ),
                                           trailing: Text(
                                             orderController.orders[index]
-                                                ['products'][index]['quantity'],
+                                                    ['products'][proindex]
+                                                ['quantity'],
                                             style:
                                                 const TextStyle(fontSize: 20),
                                           ),

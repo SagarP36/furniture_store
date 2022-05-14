@@ -22,12 +22,12 @@ class MyOrders extends GetView<OrderController> {
             builder: (orderController) => Expanded(
               child: ListView.builder(
                 itemCount: orderController.myoders.length,
-                itemBuilder: (context, index) {
+                itemBuilder: (context, proindex) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: orderController.myoders[index]
+                        color: orderController.myoders[proindex]
                                     ['delivery_status'] ==
                                 '1'
                             ? Colors.blueGrey[100]
@@ -38,13 +38,13 @@ class MyOrders extends GetView<OrderController> {
                         children: [
                           ListTile(
                             title: Text('Address: ' +
-                                orderController.myoders[index]['address']),
+                                orderController.myoders[proindex]['address']),
                             trailing: Text(
-                              orderController.myoders[index]['total'],
+                              orderController.myoders[proindex]['total'],
                               style: const TextStyle(fontSize: 20),
                             ),
                             // ignore: unrelated_type_equality_checks
-                            subtitle: Text(orderController.myoders[index]
+                            subtitle: Text(orderController.myoders[proindex]
                                         ['delivery_status'] ==
                                     '1'
                                 ? "Delivered"
@@ -64,12 +64,12 @@ class MyOrders extends GetView<OrderController> {
                                 )),
                           ),
                           //products
-                          if (orderController.myoders[index]['products'] !=
+                          if (orderController.myoders[proindex]['products'] !=
                               null)
                             ListView.builder(
                               shrinkWrap: true,
                               itemCount: orderController
-                                  .myoders[index]['products'].length,
+                                  .myoders[proindex]['products'].length,
                               itemBuilder: (context, index) {
                                 return Padding(
                                   padding: const EdgeInsets.all(8),
@@ -81,14 +81,14 @@ class MyOrders extends GetView<OrderController> {
                                     child: ListTile(
                                       leading: Image.network(
                                         "$baseUrl/" +
-                                            orderController.myoders[index]
+                                            orderController.myoders[proindex]
                                                 ['products'][index]['image'],
                                         fit: BoxFit.cover,
                                         height: 50,
                                         width: 50,
                                       ),
                                       title: Text(
-                                        orderController.myoders[index]
+                                        orderController.myoders[proindex]
                                                 ['products'][index]['name']
                                             .toString()
                                             .toUpperCase(),
@@ -96,7 +96,7 @@ class MyOrders extends GetView<OrderController> {
                                       ),
                                       trailing: Text(
                                         'QTY: ' +
-                                            orderController.myoders[index]
+                                            orderController.myoders[proindex]
                                                 ['products'][index]['quantity'],
                                         style: const TextStyle(fontSize: 15),
                                       ),
